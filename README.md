@@ -1,3 +1,11 @@
+# Cohesion Compatible Tweaks
+These are the changes I made to Natsumi to make it more compatible with Cohesion, along with some personal style preferences.
+- Corrected browser border values
+- Changed URL animation timings
+- Changed URL Input font size
+- Removed border from non-selected Container Tabs
+---
+
 <h1 align="center">
   <img width="120" height="120" src="https://github.com/greeeen-dev/natsumi-browser/blob/main/images/icon.png?raw=true">
   <br>
