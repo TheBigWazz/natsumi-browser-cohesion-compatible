@@ -36,20 +36,20 @@ as they use the correct format.
 
 /* URL bar appear animation */
 #urlbar {
-  --animation-duration: 0.25s;
+  --animation-duration: 0.5s;
 }
 
 /* Results appear animation */
 #urlbar-results {
-  --animation-duration: 0.5s;
+  --animation-duration: 0s;
 }
 
 /* Individual result appear animation */
 .urlbarView-row {
-  --animation-duration: 1.0s;
+  --animation-duration: .5s;
   --animation-duration-subtle: 0.5s; /* WIP, this won't change anything for now */
-  --animation-delay: 0.1s;
-  --animation-delay-offset: 0.3s;
+  --animation-delay: 0.05s;
+  --animation-delay-offset: 0s;
 }
 
 /* Reload border animation */
@@ -68,10 +68,9 @@ browser, .browserSidebarContainer.deck-selected {
 
 /* Container tabs gradient */
 .tabbrowser-tab {
-  --container-gradient-width: 25%;
+  --container-gradient-width: 50%;
   --container-gradient-width-expanded: 50%;
 }
-
 
 
 /* ==== Pre-style patches ==== */
@@ -81,7 +80,7 @@ browser, .browserSidebarContainer.deck-selected {
 
 @media not (-moz-bool-pref: "natsumi.theme.disable-blur") {
   browser {
-    clip-path: inset(0% 0% 0% 0% round var(--zen-webview-border-radius, var(--zen-border-radius))) !important;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%) !important;
   }
 }
 
@@ -104,8 +103,6 @@ browser, .browserSidebarContainer.deck-selected {
     }
   }
 }
-
-
 
 /* ==== Base UI (Sidebars and tabs) ==== */
 /* Based on https://github.com/lunar-os/ZenCss with my own tweaks added */
@@ -156,7 +153,7 @@ browser, .browserSidebarContainer.deck-selected {
 }
 
 .tabbrowser-tab[pinned]:not([zen-essential="true"]) .tab-stack .tab-background {
-  border: 1px solid #ffffff26 !important;
+  border: px solid #ffffff26 !important;
 }
 
 .tabbrowser-tab[pinned]:not([zen-essential="true"]) .tab-stack .tab-background:is([selected], [multiselected]) {
@@ -177,53 +174,6 @@ browser, .browserSidebarContainer.deck-selected {
   box-shadow: 0px 1px 10px rgba(0,0,0,0.1) !important;
   border-radius: 8px !important;
   border: 1px solid #ffffff0c !important;
-}
-
-/* Close button hover background */
-
-.close-icon {
-  transition: background-color 0.1s ease-out;
-}
-  
-.close-icon:hover {
-  background-color: rgba(255, 100, 100, 0.90) !important;
-  transition: background-color 0.1s ease-in;
-}
-
-.titlebar-button > .toolbarbutton-icon {
-  background: #ffffff1f !important;
-  list-style-image: none;
-  border-radius: 10px;
-  transition: 0.2s ease;
-  border: 1px solid #3aea4900 !important;
-}
-
-.titlebar-min > .toolbarbutton-icon {
-  background: #ffffff1f !important;
-}
-
-.titlebar-close > .toolbarbutton-icon {
-  background: #ffffff1f !important;
-}
-
-.titlebar-button:hover > .toolbarbutton-icon {
-  background: #3aea4994 !important;
-  border: 1px solid #3aea49 !important;
-}
-
-.titlebar-min:hover > .toolbarbutton-icon {
-  background: #fac53794 !important;
-  border: 1px solid #fac537 !important;
-}
-
-.titlebar-close:hover > .toolbarbutton-icon {
-  background: #f34f5694 !important;
-  border: 1px solid #f34f56 !important;
-}
-
-.titlebar-button {
-  background: transparent !important;
-  padding-inline: 5px !important;
 }
 
 #zen-workspaces-button {
@@ -390,8 +340,6 @@ toolbarbutton:active {
 toolbarbutton[open] {
   transition: background-color 0.2s ease, transform 0.2s ease !important;
 }
-
-
 
 /* ==== Tab groups ==== */
 /* Based on code by https://github.com/vicky5124 with my own tweaks added */
@@ -647,8 +595,6 @@ tab-group:not(:has(tab)) {
   display: none !important;
 }
 
-
-
 /* ==== Horizontal tabs patches ==== */
 
 @media not (-moz-bool-pref: "zen.tabs.vertical") {
@@ -681,8 +627,6 @@ tab-group:not(:has(tab)) {
     display: flex !important;
   }
 }
-
-
 
 /* ==== Natsumi URLbar ==== */
 
@@ -1014,7 +958,6 @@ tab-group:not(:has(tab)) {
       }
 
       #urlbar-input {
-        font-size: 20px !important;
         margin-left: 2px !important;
         margin-right: 0 !important;
         
@@ -1551,7 +1494,7 @@ tab-group:not(:has(tab)) {
   
   .tab-background {
     overflow: hidden !important;
-    border: 1px solid var(--identity-icon-color) !important;
+    
     
     @media (-moz-bool-pref: "natsumi.sidebar.containers-dashed-border") {
       border: 1px dashed var(--identity-icon-color) !important;
@@ -1592,35 +1535,3 @@ tab-group:not(:has(tab)) {
     }
   }
 }
-
-/* ==== WIP features (do not touch yet) ==== */
-
-/*
-@keyframes scroll-left {
-  0% {
-    transform: translateX(100%);
-  }
-  
-  50% {
-    transform: translateX(0%);
-  }
-
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-.tab-label-container {
-  overflow: unset !important;
-  overflow-wrap: break-word !important;
-}
-
-.tabbrowser-tab:hover {
-  .tab-label-container[textoverflow="true"] .tab-text {
-    display: flex !important;
-    white-space: nowrap;
-    animation-delay: -5s !important;
-    animation: scroll-left 10s linear infinite;
-  }
-}
-*/
